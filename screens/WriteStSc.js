@@ -78,7 +78,7 @@ class WriteStSc extends React.Component{
                 <TextInput
                     style={styling.textInput}
                     placeholder={'The Story'} 
-                    multiline = 'true'
+                    multiline = {true}
                     
                     onChangeText={text=>{
                         this.setState({
@@ -111,8 +111,7 @@ const styling = StyleSheet.create({
     },
     textInput:{
         borderWidth:2,
-        marginTop:10,
-        wordWrap:'wrap'
+        marginTop:10
     },
     sub:{
         backgroundColor:"blue",
@@ -124,9 +123,9 @@ const styling = StyleSheet.create({
     },
     subText:{
         color:'white',
-        fontsize:10,
+        fontSize:10,
         fontWeight:"bold",
-        psadding:10,
+        padding:10,
         textAlign:'center',
     }
 })

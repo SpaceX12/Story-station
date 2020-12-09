@@ -1,10 +1,11 @@
 import * as React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
-import { createAppContainer } from 'react-navigation';
+import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 
 import WriteStSc from './screens/WriteStSc';
 import ReadStSc from './screens/ReadStSc';
+import LogInSc from './screens/LogInSc';
 
 export default class App extends React.Component{
   render(){
@@ -19,8 +20,8 @@ export default class App extends React.Component{
 }
 
 const TabNavigator = createBottomTabNavigator({
-  WriteYourOwn: WriteStSc,
-  ReadStories: ReadStSc
+  WriteYourOwn: {screen:WriteStSc},
+  ReadStories: {screen:ReadStSc}
 },
 {
   defaultNavigationOptions:({navigation})=>({
@@ -53,7 +54,12 @@ const TabNavigator = createBottomTabNavigator({
   })
 })
 
-const AppContainer = createAppContainer(TabNavigator);
+const switchNavigator = createSwitchNavigator({
+  LogInSc: {screen:LogInSc},
+  TabNavigator: {screen:TabNavigator}
+})
+
+const AppContainer = createAppContainer(switchNavigator);
 
 const styles = StyleSheet.create({
   container: {
